@@ -1,3 +1,6 @@
+# blockers
+- staging 
+
 # Five W's
 ## Who
 - Users from PPC traffic from home staging keywords
