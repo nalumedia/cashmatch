@@ -1,5 +1,23 @@
+#y
+111720
+- output style as style name 
+- output staging amount as full / partial / accessories
+- calculate monthly rental
+- calculate security deposit
+- calculate total
+
+111629
+- got conditional working on all the header inputs
+- got hover working
+- spans for content in staging type
+
+#t
+- clean up the layout
+
+
 # blockers
-- staging 
+- staging multilier is showing as a number, should be the type fo staging you selected
+- layout
 
 # Five W's
 ## Who

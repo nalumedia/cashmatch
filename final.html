@@ -17,105 +17,86 @@
         </div>
         <div class="results">
             <div id="results_left">
-                <div class="loader"></div>
+                <span id="results_label"></span><span id="squarefeet">&#128308; Square Footage</span><br /><br />
+                <span id="results_label"></span><span id="selectedstagingtype">&#128308;Staging Type</span><br /><br />
+                <span id="results_label"></span><span id="selectedstyle">&#128308;Style of Home</span><br /><br />
+                <span id="results_label"></span><span id="selectedhowmuch">&#128308;Full, Partial, or Accessories</span>
+                <span id="hr"></span>
+                <span id="welcome"></span><br /><br />
+                <span id="totalPrice"></span><br /><br />
+                <span id="monthlyRental"></span><br /><br />
+                <span id="securityDeposit"></span><br /><br />
+                <span id="total"></span><br /><br />
+                <span id="button"></span><br /><br />
+                
             </div>
             <div id="results_right">
-                <span id="results_label">Square Feet: </span><span id="squarefeet">&#128308; Enter Square Footage</span><br /><br />
-                <span id="results_label">Staging Type: </span><span id="selectedstagingtype">&#128308;Select Staging Type</span><br /><br />
-                <span id="results_label">Style: </span><span id="selectedstyle">&#128308;Select Style</span><br /><br />
-                <span id="results_label">Staging Amount </span><span id="selectedhowmuch">&#128308;Select Full, Partial, or Accessories</span>
-                <hr />
-                <span id="results_label">Total Estimated to Stage: </span><span id="totalPrice">Pending</span><br /><br />
-                <button type="button" class="button" onclick="sendEmail()">Get My Quote</button>
+                <form action="" id="calculator" onsubmit="return false;">
+                    <div class="select_type"> How many square feet is the property? <input type="text" name="quantity" id="quantity" onkeyup="calculateTotal(); updateSqFt()" /></div>
+                
+                    <div class="select_type">What type of staging do you need?</div>
+                    <div id="staging_types">
+                        <span id="staging_type_details"><label>
+                            <input type="radio" name="stagingtype" value="Basic" onclick="calculateTotal(); updateType()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Basic">
+                            <br />For price conscious clients willing to turn over complete design discretion.
+                            </label>
+                        </span>
+                        <span id="staging_type_details">
+                            <label>
+                            <input type="radio" name="stagingtype" value="Standard" onclick="calculateTotal(); updateType()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Standard">
+                            <br />Clients pricing in the mid-to-upper level of the market, looking for a luxury aesthetic with a moderate level of input and involvement in the design process
+                            </label>
+                        </span>
+                        <span id="staging_type_details">
+                            <label>
+                            <input type="radio" name="stagingtype" value="Premium" onclick="calculateTotal(); updateType();" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Premium">
+                            <br />Client’s with properties in the $10M+ segment that would like a high level of involvement in the design process
+                            </label>
+                        </span>
+                    </div>
+                    <div class="select_type">What style of home are you staging?</div>
+                    <div id="style">
+                        <label>
+                            <input type="radio" name="style" value="Contemporary" onclick="calculateTotal(); updateStyle()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Contemporary">
+                        </label>
+                        <label>
+                            <input type="radio" name="style" value="Modern" onclick="calculateTotal(); updateStyle()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Modern">
+                        </label>
+                        <label>
+                            <input type="radio" name="style" value="Transitional" onclick="calculateTotal(); updateStyle()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Transitional">
+                        </label>
+                        <label>
+                            <input type="radio" name="style" value="Other" onclick="calculateTotal(); updateStyle()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Other">
+                        </label>
+                    </div>
+                    <div class="select_type">Do you need full staging, partial staging, or just accessories?</div>
+                    <div id="whatstaged">
+                        <label>
+                            <input type="radio" name="howmuch" value="Full" onclick="calculateTotal(); updateMuch()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Full+Staging">
+                        </label>
+                        <label>
+                            <input type="radio" name="howmuch" value="Partial" onclick="calculateTotal(); updateMuch()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Partial+Staging">
+                        </label>
+                        <label>
+                            <input type="radio" name="howmuch" value="Accessories Only" onclick="calculateTotal(); updateMuch()" />
+                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Just+Accessories">
+                        </label>
+                    </div>
+                </form>
             </div>
         </div>
-        <!-- <div class="description">
-            <div id="description_content">
-                <div class="typewriter">
-                    <h1>Enter property details. Receive an instant quote</h1>
-                </div>
-            </div>
-        </div> -->
         
-            <div class="q1">
-                <div id="q1_left">
-                    <form action="" id="calculator" onsubmit="return false;">
-                            <div>
-                            Enter Property Square Footage: &nbsp;<input type="text"  name="quantity" id="quantity" onkeyup="calculateTotal(); updateSqFt()" />
-                            </div>
-                            <br /><br />
-                            Select Staging Type<br /><br />
-                            <div id="staging_types">
-                                <span id="staging_type_details"><label>
-                                    <input type="radio" name="stagingtype" value="basic" onclick="calculateTotal(); updateType()" />
-                                    <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Basic">
-                                    <br />For price conscious clients willing to turn over complete design discretion.
-                                    </label>
-                                </span>
-                                    <span id="staging_type_details">
-                                    <label>
-                                    <input type="radio" name="stagingtype" value="standard" onclick="calculateTotal(); updateType()" />
-                                    <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Standard">
-                                    <br />Clients pricing in the mid-to-upper level of the market, looking for a luxury aesthetic with a moderate level of input and involvement in the design process
-                                    </label>
-                                </span>
-                                    <span id="staging_type_details">
-                                    <label>
-                                    <input type="radio" name="stagingtype" value="premium" onclick="calculateTotal(); updateType()" />
-                                    <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Premium">
-                                    <br />Client’s with properties in the $10M+ segment that would like a high level of involvement in the design process
-                                    </label>
-                                    </span>
-                            </div>
-                            <br /><br />
-                            Selected a style:
-                            <br /><br />
-                            <label>
-                            <input type="radio" name="style" value="Contemporary" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Contemporary">
-                            </label>
-                            <label>
-                            <input type="radio" name="style" value="Modern" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Modern">
-                            </label>
-                            <label>
-                            <input type="radio" name="style" value="Transitional" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Transitional">
-                            </label>
-                            <label>
-                            <input type="radio" name="style" value="Other" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Other">
-                            </label>
-                            <br /><br />
-                            What do you need staged:
-                            <br /><br />
-                            <label>
-                            <input type="radio" name="howmuch" value="Full" onclick="calculateTotal(); updateMuch()" />
-                            <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Full">
-                            </label>
-                            <label>
-                            <input type="radio" name="howmuch" value="Partial" onclick="calculateTotal(); updateMuch()" />
-                            <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Partial">
-                            </label>
-                            <label>
-                            <input type="radio" name="howmuch" value="Accessories" onclick="calculateTotal(); updateMuch()" />
-                            <img src="http://placehold.it/200x100/F1FAEE/1D3557&text=Accessories">
-                            </label>
-                            <!-- <br/>
-                            <p>
-                            <label for='includecandles' class="inlinelabel"> Include Candles($5)</label>
-                            <input type="checkbox" id="includecandles" name='includecandles' onclick="calculateTotal()" />
-                            </p>
-                            <p>
-                            <label class="inlinelabel" for='includeinscription'> Include Inscription($20)</label>
-                            <input type="checkbox" id="includeinscription" name="includeinscription" onclick="calculateTotal()" />
-                            <input type="text" id="theinscription" name="theinscription" value="Enter Inscription"  />
-                            </p>
-                            <div id="totalPrice"></div> -->
-                            
-                        </form>
-                </div>
-            </div>
+        
+            
         </div>
 
    
