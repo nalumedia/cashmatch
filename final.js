@@ -2,23 +2,23 @@
 // prices per square foot
 var price_sqft = new Array();
 price_sqft["Basic"]=3;
-price_sqft["Standard"]=4;
-price_sqft["Premium"]=8;
+price_sqft["Standard"]=4.5;
+price_sqft["Premium"]=6;
 
 
 // prices per style
 var style_prices= new Array();
 style_prices["None"]=0;
-style_prices["Contemporary"]=1.5;
-style_prices["Modern"]=1;
-style_prices["Transitional"]=2;
-style_prices["Other"]=1;
+style_prices["Contemporary"]=1.2;
+style_prices["Modern"]=1.3;
+style_prices["Transitional"]=1.4;
+style_prices["Other"]=1.5;
 
 // prices per how much is being staged
 var how_much= new Array();
-how_much["Full"]=2;
-how_much["Partial"]=1;
-how_much["Accessories Only"]=.5;
+how_much["Full"]=1;
+how_much["Partial"]=.7;
+how_much["Accessories Only"]=.4;
 
 // get Square Footage
 function getQuantity()
@@ -32,6 +32,20 @@ function getQuantity()
         howmany = parseInt(quantity.value);
     }
 return howmany;
+}
+
+// get Value
+function getValue()
+{
+    var theForm = document.forms["calculator"];
+    var cost = theForm.elements["cost"];
+    var propertyvalue =0;
+    // check if SqFt is blank
+    if(propertyvalue.value!="")
+    {
+        propertyvalue = parseInt(cost.value);
+    }
+return propertyvalue;
 }
 
 function getPriceSqft()
@@ -93,20 +107,34 @@ function getHowMuchName()
 // calculate total price and update options selected
 function calculateTotal()
 {   
+    
     // calculate total price
     var stagingPrice =  getPriceSqft() * getQuantity() * getStylePrice() * getHowMuch();
     var monthlyRental = .15 * stagingPrice;
     var securityDeposit = .1 * stagingPrice;
     var total = stagingPrice + monthlyRental + securityDeposit; 
+    // staging impact in percent
+    var stagingFullPct = ((total / getValue()) * 100) * getHowMuch();
+    // staging impact based on total impact
+    var stagingImpact = (((total / getValue()) * 100) * (getHowMuch() * .1)) * 105; 
+    // staging impact in decimal
+    var stagingImpactPct = ((total / getValue()) * getHowMuch());
+    // staging impact in cash based on purchase price
+    var stagingROI = (stagingImpact / 100) * getValue();
 
-    if (stagingPrice > 0) {
+    
+    if (stagingImpact > 0) {
         document.getElementById('totalPrice').innerHTML = "Initial Staging Fee $"+stagingPrice.toLocaleString('en-US');
-        document.getElementById('monthlyRental').innerHTML = "Monthly Rental $"+monthlyRental.toLocaleString('en-US');
-        document.getElementById('securityDeposit').innerHTML = "Security Deposit $"+securityDeposit.toLocaleString('en-US');
-        document.getElementById('total').innerHTML = "Total $"+total.toLocaleString('en-US');
+        document.getElementById('monthlyRental').innerHTML = "| Monthly Rental $"+monthlyRental.toLocaleString('en-US');
+        document.getElementById('securityDeposit').innerHTML = "| Security Deposit $"+securityDeposit.toLocaleString('en-US');
+        document.getElementById('total').innerHTML = "$"+total.toLocaleString('en-US');
         document.getElementById('button').innerHTML = '<button type="button" class="button" onclick="sendEmail()">Get My Quote</button>';
-        document.getElementById('hr').innerHTML = '<hr>';
-        document.getElementById('welcome').innerHTML = 'Your Staging Quote:';
+        document.getElementById('hr').innerHTML = '&#128077	Your Quote is Ready';
+        document.getElementById('welcome').innerHTML = 'Total Cost to Stage:';
+        document.getElementById('welcome2').innerHTML = 'Estimated Increase in Purchase Price: ';
+        document.getElementById('impact').innerHTML = stagingImpact.toFixed(2) + "%";
+        document.getElementById('cashin').innerHTML = "| Potential Staging ROI $"+stagingROI.toLocaleString('en-US');
+       
         
 
         // document.getElementById('results_left').innerHTML = `<img src="https://athomestyling.s3-us-west-2.amazonaws.com/home.png"> `;
@@ -114,9 +142,18 @@ function calculateTotal()
         // TODO get conditional working 
 }
 
+
+
+
 // replace square footage
 function updateSqFt() {
     document.getElementById('squarefeet').innerHTML = "&#9989; "+getQuantity().toLocaleString('en-US')+" Square Feet";
+}
+
+// replace value
+
+function updateValue() {
+    document.getElementById('propertyvalue').innerHTML = "&#9989; $"+getValue().toLocaleString('en-US');
 }
 
 //replace staging type

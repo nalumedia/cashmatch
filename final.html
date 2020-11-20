@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>At Home Styling</title>
+    <title>&#128241; Stageulator</title>
     <link rel="stylesheet" href="./final.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
@@ -13,83 +13,145 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="headercontent"><h1>At Home Styling Staging Estimator &#127968;</h1></div> 
+            <div class="headercontent"><h1>Stageulator &#128241; &#127968;</h1></div> 
+            <div class="headerright">
+                <div class="results_top">
+                    <span id="welcome"></span> &nbsp; &nbsp; <span id="total"></span> &nbsp; &nbsp; <span id="welcome2"></span><span id="impact"></span> &nbsp; &nbsp; <span id="button"></span><br />
+                </div>
+                <div class="results_bottom">
+                    <span id="totalPrice"></span>
+                    <span id="monthlyRental"></span>
+                    <span id="securityDeposit"></span>
+                    <span id="cashin"></span><br />
+                    
+                </div>
+            </div>
         </div>
         <div class="results">
             <div id="results_left">
                 <span id="results_label"></span><span id="squarefeet">&#128308; Square Footage</span><br /><br />
+                <span id="results_label"></span><span id="propertyvalue">&#128308; Property Value</span><br /><br />
                 <span id="results_label"></span><span id="selectedstagingtype">&#128308;Staging Type</span><br /><br />
                 <span id="results_label"></span><span id="selectedstyle">&#128308;Style of Home</span><br /><br />
-                <span id="results_label"></span><span id="selectedhowmuch">&#128308;Full, Partial, or Accessories</span>
+                <span id="results_label"></span><span id="selectedhowmuch">&#128308;Full, Partial, or Accessories</span><br /><br />
                 <span id="hr"></span>
-                <span id="welcome"></span><br /><br />
-                <span id="totalPrice"></span><br /><br />
-                <span id="monthlyRental"></span><br /><br />
-                <span id="securityDeposit"></span><br /><br />
-                <span id="total"></span><br /><br />
-                <span id="button"></span><br /><br />
+                
                 
             </div>
             <div id="results_right">
                 <form action="" id="calculator" onsubmit="return false;">
                     <div class="select_type"> How many square feet is the property? <input type="text" name="quantity" id="quantity" onkeyup="calculateTotal(); updateSqFt()" /></div>
+                    <div class="select_type"> What is the estimated listing price? &nbsp; &nbsp; &nbsp; <input type="text" name="cost" id="cost" onkeyup="calculateTotal(); updateValue()" /></div>
                 
                     <div class="select_type">What type of staging do you need?</div>
                     <div id="staging_types">
-                        <span id="staging_type_details"><label>
+                        <span id="staging_type_details">
+                            <label>
+                            <div class="columns">
+                                <ul class="price">
+                                  <li class="header">Basic</li>
+                                  <li class="grey">$3.00+ per SqFt</li>
+                                  <li>For price conscious homeowners</li>
+                                  <li>Stager has full design discretion</li>
+                                  <li>1 walk through</li>
+                                  <li>Additional visits incur a charge</li>
+                                </ul>
+                              </div>
                             <input type="radio" name="stagingtype" value="Basic" onclick="calculateTotal(); updateType()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Basic">
-                            <br />For price conscious clients willing to turn over complete design discretion.
                             </label>
                         </span>
                         <span id="staging_type_details">
                             <label>
+                                <div class="columns">
+                                    <ul class="price">
+                                      <li class="header">Standard</li>
+                                      <li class="grey">$4.50+ per SqFt</li>
+                                      <li>For clients looking to differentiate their property</li>
+                                      <li>Designer assigned to the project will collaborate with homeowners</li>
+                                      <li>Initial walk through, design review, and final walk through</li>
+                                      <li>Changes can be made until final day of installation</li>
+                                    </ul>
+                                  </div>
                             <input type="radio" name="stagingtype" value="Standard" onclick="calculateTotal(); updateType()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Standard">
-                            <br />Clients pricing in the mid-to-upper level of the market, looking for a luxury aesthetic with a moderate level of input and involvement in the design process
                             </label>
                         </span>
                         <span id="staging_type_details">
                             <label>
                             <input type="radio" name="stagingtype" value="Premium" onclick="calculateTotal(); updateType();" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Premium">
-                            <br />Client’s with properties in the $10M+ segment that would like a high level of involvement in the design process
+                            <div class="columns">
+                                <ul class="price">
+                                  <li class="header">Premium</li>
+                                  <li class="grey">$8.00+ per SqFt</li>
+                                  <li>For trophy properties and custom design</li>
+                                  <li>Designer team provides mood boards and works with client on furniture selection prior to install</li>
+                                  <li>Initial walk through, multiple design reviews, and designer on site during the project</li>
+                                  <li>Changes can be made throughout the project</li>
+                                </ul>
+                              </div>
                             </label>
                         </span>
                     </div>
                     <div class="select_type">What style of home are you staging?</div>
                     <div id="style">
-                        <label>
-                            <input type="radio" name="style" value="Contemporary" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Contemporary">
-                        </label>
-                        <label>
-                            <input type="radio" name="style" value="Modern" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Modern">
-                        </label>
-                        <label>
-                            <input type="radio" name="style" value="Transitional" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Transitional">
-                        </label>
-                        <label>
-                            <input type="radio" name="style" value="Other" onclick="calculateTotal(); updateStyle()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Other">
-                        </label>
+                        <span class="style_details">
+                            <label>
+                                <span class="style_name"></span>
+                                Contemporary<br />
+                                <input type="radio" name="style" value="Contemporary" onclick="calculateTotal(); updateStyle()" />
+                                <img src="https://athomestyling.s3-us-west-2.amazonaws.com/contemporary.jpg">
+                                <p id="description">Classic materials, soft shapes and touches of flair.</p>
+                            </label>
+                        </span>
+                        <span class="style_details">
+                            <label>
+                                <span class="style_name"></span>
+                                Modern<br />
+                                <input type="radio" name="style" value="Modern" onclick="calculateTotal(); updateStyle()" />
+                                <img src="https://athomestyling.s3-us-west-2.amazonaws.com/modern2.jpg">
+                                <p id="description">Clean, crisp lines, simple colors, and precise use of materials.</p>
+                            </label>
+                        </span>
+                        <span class="style_details">
+                            <label>
+                                <span class="style_name"></span>
+                                Transitional<br />
+                                <input type="radio" name="style" value="Transitional" onclick="calculateTotal(); updateStyle()" />
+                                <img src="https://athomestyling.s3-us-west-2.amazonaws.com/transitional.jpg">
+                                <p id="description">Various materials, curved finishes and neutral color.</p>
+                            </label>
+                        </span>
+                        <span class="style_details">
+                            <label>
+                                Other<br />
+                                <input type="radio" name="style" value="Other" onclick="calculateTotal(); updateStyle()" />
+                                <img src="https://athomestyling.s3-us-west-2.amazonaws.com/other.jpg">
+                                <p id="description">Combination of styles or custom for your project.</p>
+                            </label>
+                        </span>
                     </div>
                     <div class="select_type">Do you need full staging, partial staging, or just accessories?</div>
                     <div id="whatstaged">
+                        <span class="staged_details">
                         <label>
+                            Ful Staging<br/>
                             <input type="radio" name="howmuch" value="Full" onclick="calculateTotal(); updateMuch()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Full+Staging">
+                            <img src="https://athomestyling.s3-us-west-2.amazonaws.com/full.jpg"">
                         </label>
+                        </span>
+                        <span class="staged_details">
                         <label>
+                            Parial Staging<br />
                             <input type="radio" name="howmuch" value="Partial" onclick="calculateTotal(); updateMuch()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Partial+Staging">
+                            <img src="https://athomestyling.s3-us-west-2.amazonaws.com/partial.jpg"">
                         </label>
+                        </span>
+                        <span class="staged_details">
                         <label>
+                            Accessories<br />
                             <input type="radio" name="howmuch" value="Accessories Only" onclick="calculateTotal(); updateMuch()" />
-                            <img src="http://placehold.it/300x100/F1FAEE/1D3557&text=Just+Accessories">
+                            <img src="https://athomestyling.s3-us-west-2.amazonaws.com/accessories2.jpg">
                         </label>
+                        </span>
                     </div>
                 </form>
             </div>

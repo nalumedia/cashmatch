@@ -1,13 +1,12 @@
 body {
     font-family: 'Merriweather', serif;
-    background: rgb(69,123,157);
-    background: radial-gradient(circle, rgba(69,123,157,1) 0%, rgba(168,218,220,1) 100%);
+    background: rgb(134,165,217);
+    background: radial-gradient(circle, rgba(134,165,217,1) 0%, rgba(22,219,101,1) 100%);
 }
 
 .container {
     background-color: white;
-    opacity: 0.9;
-    border-radius: 25px;
+    opacity: 1;
 }
 
 .header {
@@ -15,8 +14,50 @@ body {
 }
 
 .headercontent {
-  width: 100%;
+  flex: 1;
   padding-left: 20px;
+}
+
+.headerright {
+  padding-top: 20px;
+  flex: 3;
+  width: 100%;
+}
+
+
+.results_top {
+  display: flex;
+  align-items: space-between;
+  padding-bottom: 10px;
+}
+
+.results_bottom {
+  padding-bottom: 10px;
+}
+
+#welcome {
+  padding-top: 20px;
+}
+
+#welcome2 {
+  padding-top: 20px;
+}
+
+#total {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#impact {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#button {
+  padding-top: 10px;
+}
+
+#totalPrice {
 }
 
 #results_label {
@@ -25,14 +66,15 @@ body {
 
 input {
   border:none;
-  border-bottom: 1px solid #1890ff;
+  font-size: 20px;
+  border-bottom: 1px solid #058C42;
   outline: none;
   height: 30px;
   width: 300px;
   }
 
   input:focus {
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid #16DB65;
   }
 
 
@@ -51,6 +93,9 @@ h1 {
   justify-content: space-between;
 }
 
+#description {
+  font-size: 10px;
+}
 #whatstaged {
   display: flex;
   justify-content: space-between;
@@ -63,6 +108,16 @@ h1 {
 
 #staging_type_details {
   text-align: center;
+}
+
+.style_details {
+  width: 300px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.style_name {
+  padding-bottom: 20px;
 }
 
 .results {
@@ -95,11 +150,15 @@ h1 {
  
 }
 
+#whatstaged {
+  padding-right: 200px;
+}
+
 /* button styles */
 .button {
-  background-color: #457B9D;
+  background-color: #0EB454;
   border: none;
-  color: white;
+  color: black;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -113,8 +172,8 @@ h1 {
 }
 
 .button:hover {
-  background-color: #E63946;
-  color: white;
+  background-color: #16DB65;
+  color: black;
 }
 
 
@@ -133,10 +192,50 @@ h1 {
   
   /* CHECKED STYLES */
   [type=radio]:checked + img {
-    outline: 5px solid #457B9D;
+    outline: 3px solid #0EB454;
   }
 
    /* Hover STYLES */
    [type=radio]:hover + img {
-    outline: 2px solid #1D3557;
+    outline: 3px solid #16DB65;
+  }
+
+
+
+  /* staging box */
+  .columns {
+    width: 300px;
+    padding-left: 10px;
+  }
+
+  .price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .price:hover {
+    box-shadow: 0 8px 12px 0 #16DB65;
+  }
+  
+  .price .header {
+    background-color: #3943B7;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .price li {
+    border-bottom: 1px solid #eee;
+    padding: 14px;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  .price .grey {
+    background-color: #8E6E53;
+    color: white;
+    font-size: 18px;
   }
