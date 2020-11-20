@@ -222,7 +222,7 @@ h1 {
   }
   
   .price .header {
-    background-color: #3943B7;
+    background-color: #535DCA;
     color: white;
     font-size: 20px;
   }
@@ -235,7 +235,9 @@ h1 {
   }
   
   .price .grey {
-    background-color: #8E6E53;
+    background-color: #9298DD;
     color: white;
     font-size: 18px;
   }
+
+  
