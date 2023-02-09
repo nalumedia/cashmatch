@@ -10,9 +10,9 @@ price_sqft["Premium"]=6;
 var style_prices= new Array();
 style_prices["None"]=0;
 style_prices["Contemporary"]=1.2;
-style_prices["Modern"]=1.3;
-style_prices["Transitional"]=1.4;
-style_prices["Other"]=1.5;
+style_prices["Modern"]=1.25;
+style_prices["Transitional"]=1.3;
+style_prices["Other"]=1.32;
 
 // prices per how much is being staged
 var how_much= new Array();
@@ -116,7 +116,7 @@ function calculateTotal()
     // staging impact in percent
     var stagingFullPct = ((total / getValue()) * 100) * getHowMuch();
     // staging impact based on total impact
-    var stagingImpact = (((total / getValue()) * 100) * (getHowMuch() * .1)) * 105; 
+    var stagingImpact = (((total / getValue()) * 100) * (getHowMuch() * .05)) * 103; 
     // staging impact in decimal
     var stagingImpactPct = ((total / getValue()) * getHowMuch());
     // staging impact in cash based on purchase price
