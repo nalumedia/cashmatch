@@ -1,3 +1,7 @@
+* {
+  border: 1px solid red;
+}
+
 body {
     font-family: 'Merriweather', serif;
     background: rgb(134,165,217);

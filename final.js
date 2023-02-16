@@ -1,24 +1,10 @@
 
-// prices per square foot
-var price_sqft = new Array();
-price_sqft["Basic"]=3;
-price_sqft["Standard"]=4.5;
-price_sqft["Premium"]=6;
 
 
-// prices per style
-var style_prices= new Array();
-style_prices["None"]=0;
-style_prices["Contemporary"]=1.2;
-style_prices["Modern"]=1.25;
-style_prices["Transitional"]=1.3;
-style_prices["Other"]=1.32;
 
-// prices per how much is being staged
-var how_much= new Array();
-how_much["Full"]=1;
-how_much["Partial"]=.7;
-how_much["Accessories Only"]=.4;
+
+
+
 
 // get Square Footage
 function getQuantity()
@@ -48,42 +34,8 @@ function getValue()
 return propertyvalue;
 }
 
-function getPriceSqft()
-{
-    var priceSqft=0;
-    var theForm = document.forms["calculator"];
-    var selectedType = theForm.elements["stagingtype"];
-    priceSqft = price_sqft[selectedType.value];
-    return priceSqft;
-}
 
-function typeName()
-{
-    var theForm = document.forms["calculator"];
-    var selectedType = theForm.elements["stagingtype"];
-    typename = selectedType.value;
-    return typename;
-}
 
-// get price per style
-function getStylePrice()
-    {
-        var stylePrice=0;
-        var theForm = document.forms["calculator"];
-        var selectedStyle = theForm.elements["style"];
-        selectedStylePrice = style_prices[selectedStyle.value];
-        return selectedStylePrice;
-    }
-
-// get style name
-function getStyleName()
-    {
-        var theForm = document.forms["calculator"];
-        var selectedStyle = theForm.elements["style"];
-        var selectedStyleName = selectedStyle.value;
-        console.log(selectedStyle.value);
-        return selectedStyleName;
-    }
 
 // get price for how mush is being staged
 function getHowMuch()
@@ -109,7 +61,7 @@ function calculateTotal()
 {   
     
     // calculate total price
-    var stagingPrice =  getPriceSqft() * getQuantity() * getStylePrice() * getHowMuch();
+    var stagingPrice =  getPriceSqft() * getQuantity();
     var monthlyRental = .15 * stagingPrice;
     var securityDeposit = .1 * stagingPrice;
     var total = stagingPrice + monthlyRental + securityDeposit; 
@@ -156,20 +108,7 @@ function updateValue() {
     document.getElementById('propertyvalue').innerHTML = "&#9989; $"+getValue().toLocaleString('en-US');
 }
 
-//replace staging type
-function updateType() {
-    document.getElementById('selectedstagingtype').innerHTML = "&#9989; "+typeName()+" Staging";
-}
 
-//replace style type
-function updateStyle() {
-    document.getElementById('selectedstyle').innerHTML = "&#9989; " + getStyleName()+" Style";
-}
-
-//replace how much
-function updateMuch() {
-    document.getElementById('selectedhowmuch').innerHTML = "&#9989; "+getHowMuchName()+" Staging";
-}
 
 // send email with options selcted on submit
 function sendEmail()

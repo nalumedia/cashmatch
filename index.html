@@ -33,19 +33,20 @@
             <div id="results_left">
                 <span id="results_label"></span><span id="squarefeet">&#128308; Square Footage</span><br /><br />
                 <span id="results_label"></span><span id="propertyvalue">&#128308; Property Value</span><br /><br />
-                <span id="results_label"></span><span id="selectedstagingtype">&#128308;Staging Type</span><br /><br />
+                <!-- <span id="results_label"></span><span id="selectedstagingtype">&#128308;Staging Type</span><br /><br />
                 <span id="results_label"></span><span id="selectedstyle">&#128308;Style of Home</span><br /><br />
-                <span id="results_label"></span><span id="selectedhowmuch">&#128308;Full, Partial, or Accessories</span><br /><br />
+                <span id="results_label"></span><span id="selectedhowmuch">&#128308;Full, Partial, or Accessories</span><br /><br /> -->
                 <span id="hr"></span>
                 
                 
             </div>
             <div id="results_right">
                 <form action="" id="calculator" onsubmit="return false;">
-                    <div class="select_type"> How many square feet is the property? <input type="text" name="quantity" id="quantity" onkeyup="calculateTotal(); updateSqFt()" /></div>
-                    <div class="select_type"> What is the estimated listing price? &nbsp; &nbsp; &nbsp; <input type="text" name="cost" id="cost" onkeyup="calculateTotal(); updateValue()" /></div>
+                    <div class="select_type"> How much do you think your home is worth? &nbsp; &nbsp; &nbsp; <input type="text" name="cost" id="cost" onkeyup="calculateTotal(); updateValue()" /></div>
+                    <div class="select_type"> What is your zip code? <input type="text" name="quantity" id="quantity" onkeyup="calculateTotal(); updateSqFt()" /></div>
+                   
                 
-                    <div class="select_type">What type of staging do you need?</div>
+                    <!-- <div class="select_type">What type of staging do you need?</div>
                     <div id="staging_types">
                         <span id="staging_type_details">
                             <label>
@@ -92,8 +93,8 @@
                               </div>
                             </label>
                         </span>
-                    </div>
-                    <div class="select_type">What style of home are you staging?</div>
+                    </div> -->
+                    <!-- <div class="select_type">What style of home are you staging?</div>
                     <div id="style">
                         <span class="style_details">
                             <label>
@@ -156,7 +157,7 @@
                         </span>
                     </div>
                 </form>
-            </div>
+            </div> -->
         </div>
         
         
